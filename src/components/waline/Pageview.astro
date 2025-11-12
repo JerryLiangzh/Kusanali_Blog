@@ -16,7 +16,10 @@ import config from '@/site-config'
       if (el) {
         pageview.pageviewCount({
           serverURL: walineServer,
-          path: window.location.pathname
+          path: window.location.pathname,
+          pageview: true,
+          selector:'waline-pageview-count',
+          update:true
         })
       }
     } catch (e) {

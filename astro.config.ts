@@ -22,7 +22,7 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://astro-pure.js.org',
+  site: 'https://kusanali.top',
   // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
   trailingSlash: 'never',
@@ -30,8 +30,8 @@ export default defineConfig({
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
   // 1. Vercel (serverless)
-  adapter: vercel(),
-  output: 'server',
+  adapter: 'cloudflare()',
+  output: 'static',
   // 2. Vercel (static)
   // adapter: vercelStatic(),
   // 3. Local (standalone)
@@ -41,6 +41,7 @@ export default defineConfig({
 
   image: {
     responsiveStyles: true,
+    domains:['https://images.kusanali.top'],
     service: {
       entrypoint: 'astro/assets/services/sharp'
     }
@@ -63,7 +64,8 @@ export default defineConfig({
   prefetch: true,
   // Server Options
   server: {
-    host: true
+    host: true,
+    allowedHosts: ['kusanali.top']
   },
   // Markdown Options
   markdown: {
