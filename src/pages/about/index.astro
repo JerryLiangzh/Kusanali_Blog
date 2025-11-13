@@ -1,5 +1,5 @@
 ---
-import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import { Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 
@@ -82,7 +82,7 @@ const headings = [
 
   {/* about-blog */}
   <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <Collapse title='Website history:'>
   <Timeline
     events={[
       {
@@ -101,6 +101,7 @@ const headings = [
       }
     ]}
   />
+  </Collapse>
 
   <p>本站基于以下项目/服务提供商的资源和技术支持：</p>
   <ul>
