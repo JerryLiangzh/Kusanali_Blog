@@ -6,11 +6,6 @@ description: 'Effective date: 2025-08-30'
 language: 'En'
 back: '/terms/list'
 ---
-
-<h2 style="text-align: center;"><b>PRIVACY POLICY</b></h2>
-
-<p>Effective date: 2025-08-30</p>
-
 <p>1. <b>Introduction</b></p>
 
 <p>Welcome to <b> Kusanali Blog</b>.</p>

@@ -5,10 +5,7 @@ title: 'Terms and Conditions'
 description: 'Last updated: 2025-08-30'
 language: 'En'
 back: '/terms/list'
----
- 	 
-<h2 style="text-align: center;"><b>TERMS AND CONDITIONS</b></h2>	 	 
-<p>Last updated: 2025-08-30</p>	 	 
+---	 	 
 <p>1. <b>Introduction</b></p>	 	 
 <p>Welcome to <b>Kusanali Blog</b> (“Company”, “we”, “our”, “us”)!</p>	 	 
 <p>These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at <b>kusanali.top</b> (together or individually “Service”) operated by <b>Kusanali Blog</b>.</p>	 	 

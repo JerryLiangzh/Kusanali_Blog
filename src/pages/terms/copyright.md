@@ -6,7 +6,6 @@ description: 'Effective date: 2025-08-30'
 language: 'En'
 back: '/terms/list'
 ---
-
 ## Domain
 
 The domain name of the Kusanali Blog is `kusanali.top`. Except for the relevant subdomain name, unless it is certified by Kusanali Blog, information in my name, owned by others, and stolen by others has nothing to do with me.
