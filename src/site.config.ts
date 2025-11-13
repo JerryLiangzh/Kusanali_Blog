@@ -78,7 +78,7 @@ export const theme: ThemeUserConfig = {
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    /** Enable displaying a “Powered by Astro & Theme Pure” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
     social: { github: 'https://github.com/jerryliangzh', email: 'mailto:contact@kusanali.top' }
