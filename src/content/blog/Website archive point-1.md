@@ -19,18 +19,20 @@ tags: ["建站"]
 
 ## Astro Theme Pure & Cloudflare Pages
 
-Astro Theme Pure的使用，可见[主题GitHub页面](https://github.com/cworld1/astro-theme-pure)与[主题文档](https://astro-pure.js.org/docs)。Fork或用template部署后，src/pages里的个性化修改并不难，很多只是文本的简单替换。不过在Astro Theme Pure v4.0.9在根目录里的tsconfig.json引入的verbatimModuleSyntax，或可考虑关闭。相较于Template而言，个人更推荐fork，后续升级会更为简便，免得像我一样。
+Astro Theme Pure的使用，可见[主题GitHub页面](https://github.com/cworld1/astro-theme-pure)与[主题文档](https://astro-pure.js.org/docs)。Fork或用template部署后，src\pages里的个性化修改并不难，很多只是文本的简单替换。不过在Astro Theme Pure v4.0.9在根目录里的tsconfig.json引入的verbatimModuleSyntax，或可考虑关闭。相较于Template而言，个人更推荐fork，后续升级会更为简便，免得像我一样。
 
 Cloudflare Pages部署，可见[Astro + Cloudflare pages 快速搭建个人博客](https://yaoqx.netlify.app/blog/2024-08-15/#heading-5)与[Astro搭建个人博客](https://www.cnblogs.com/yinph/p/18549888)。记得把astro.config.ts中的adapter删除或注释，output内容改为static。
 
 另外，我个人不喜欢我的博客上出现赞助按钮或链接，因此曾花了一段时间研究这个怎么删，昨晚才解开疑惑。之所以需要研究，确实是我比较菜，或者眼瞎。
 要删除，可以：
 - 删除src\components\projects\Sponsorship.astro与src\components\projects\Sponsors.astro；把packages\pure\components\pages\Copyright.astro中关于sponsor的部分删除；删除About&Projects页面的sponsor部分
-- 将各种astro组件或文件中import部分路径从astro-pure改成packages\pure中的具体部分。不过我没有在最开始bun install以安装dependencies，说不定改起来就不会如此麻烦；或可在改完第一点后仅改动packages\pure\package.json中url位置————不过后二种均没试过
+- 将各种astro组件或文件中import部分路径从astro-pure改成packages\pure中的具体部分。不过我没有在最开始bun install以安装dependencies，说不定改起来就不会如此麻烦；或可在改完第一点后仅改动packages\pure\package.json中url位置———不过后二种均没试过
 
 ## waline与umami引入
 
 waline的引入我并不局限于简单的构建使用，而是参考了[Astro 修改(4) -- 更快、更安全的 Waline 评论](https://blog.ixiaocai.net/posts/Astro-Blog-Customize-4-Waline-Enhancement/)。但其中MongoDB的部分，其中部分页面与现在部署的页面有不少区别，当初我折腾了一晚上也没能成功，因此还是不不得不用LeanCloud。其余可见[waline文档](https://waline.js.org/guide/)与[Astro Theme Pure中关于Comment system的配置](https://astro-pure.js.org/docs/integrations/comment)。不过博客若使用Cloudflare部署后，使用waline会无法显示评论者ip，参考这个[解决办法](https://blog.xgclevo.top/posts/7824742a/)。
+
+本博客的waline额外应用了这些组件/功能：[Cloudflare Turnstile](https://www.cloudflare-cn.com/application-services/products/turnstile/)与[服务器环境变量](https://waline.js.org/reference/server/env.html)。
 
 umami则见[umami官方文档](https://umami.is/docs)与[Umami博客访问统计Vercel+Cloudflare Wokers部署](https://myblog.kemiaofx.cn/posts/2025-04-06-Umami-deploy)。
 
