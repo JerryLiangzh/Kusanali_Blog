@@ -13,9 +13,9 @@ tags: ["建站"]
 ---
 ## 是什么？
 
-本文旨在为8月末至今的建站阶段做一个小结。过去的这几个月中，凡涉及博客事务，对我而言，大抵是在折腾主题与其他配置，或是测试一下博客各组件的一些功能，博文的产出反而不是重点。但随着昨晚把困扰我已久的一个疑惑解决后，我觉得中心似乎已经可以转移了。尽管本博客的views&comments统计功能仍未正常，不过可徐徐图之，重点还是写写博文吧。
+本文旨在为8月末至今的建站阶段做一个小结。过去的这几个月中，凡涉及博客事务，对我而言，大抵是在折腾主题与其他配置，或是测试一下博客各组件的一些功能，博文的产出反而不是重点。但随着昨晚把困扰我已久的一个疑惑解决后，我觉得中心似乎已经可以转移了。尽管本博客的views&comments统计功能仍未正常，还想引入“碎碎念”部分，不过均可徐徐图之，是时候重点关注一下内容产出了。
 
-在[博客启航规划](https://kusanali.top/blog/first-formal-blog/)中我曾提及，我的Computer Science水平并不算高，在建站等事上更多的也只是止于将各种AI回答与搜索引擎结果去粗取精、融合运用，类似于二级结论的学习与记忆，不能像所谓的数理高手一样无师自通或举一反三，或者是现场推公式，因此本文也不会详细把每一步都一一列出，而是给出相关参考链接。
+在[博客启航规划](https://kusanali.top/blog/first-formal-blog/)中我曾提及，我的Computer Science水平并不算高，在建站等事上更多的也只是止于将各种AI回答与搜索引擎结果去粗取精、融合运用，类比于考试，则更似二级结论的学习与记忆，不能像所谓的数理高手一样无师自通、举一反三，或是现场推公式，因此本文也不会详细把每一步都一一列出，而是给出相关参考链接。
 
 ## Astro Theme Pure & Cloudflare Pages
 
@@ -26,7 +26,7 @@ Cloudflare Pages部署，可见[Astro + Cloudflare pages 快速搭建个人博�
 另外，我个人不喜欢我的博客上出现赞助按钮或链接，因此曾花了一段时间研究这个怎么删，昨晚才解开疑惑。之所以需要研究，确实是我比较菜，或者眼瞎。
 要删除，可以：
 - 删除src\components\projects\Sponsorship.astro与src\components\projects\Sponsors.astro；把packages\pure\components\pages\Copyright.astro中关于sponsor的部分删除；删除About&Projects页面的sponsor部分
-- 将各种astro组件或文件中import部分路径从astro-pure改成packages\pure中的具体部分。不过我没有在最开始bun install，不然改起来也不会如此麻烦；或可改动packages\pure\package.json中url位置，不过没试过
+- 将各种astro组件或文件中import部分路径从astro-pure改成packages\pure中的具体部分。不过我没有在最开始bun install以安装dependencies，说不定改起来就不会如此麻烦；或可在改完第一点后仅改动packages\pure\package.json中url位置————不过后二种均没试过
 
 ## waline与umami引入
 
