@@ -30,7 +30,7 @@ Cloudflare Pages部署，可见[Astro + Cloudflare pages 快速搭建个人博�
 
 ## waline与umami引入
 
-waline的引入我并不局限于简单的构建使用，而是参考了[Astro 修改(4) -- 更快、更安全的 Waline 评论](https://blog.ixiaocai.net/posts/Astro-Blog-Customize-4-Waline-Enhancement/)。但其中MongoDB的部分，其中部分页面与现在部署的页面有不少区别，当初我折腾了一晚上也没能成功，因此还是不不得不用LeanCloud。其余可见[waline文档](https://waline.js.org/guide/)与[Astro Theme Pure中关于Comment system的配置](https://astro-pure.js.org/docs/integrations/comment)。不过博客若使用Cloudflare部署后，使用waline会无法显示评论者ip，参考这个[解决办法](https://blog.xgclevo.top/posts/7824742a/)。
+waline的引入我并不局限于简单的构建使用，而是参考了[Astro 修改(4) -- 更快、更安全的 Waline 评论](https://blog.ixiaocai.net/posts/Astro-Blog-Customize-4-Waline-Enhancement/)。但其中MongoDB的部分，其中部分页面与现在部署的页面有不少区别，当初我折腾了一晚上也没能成功，因此还是得用LeanCloud。其余可见[waline文档](https://waline.js.org/guide/)与[Astro Theme Pure中关于Comment system的配置](https://astro-pure.js.org/docs/integrations/comment)。不过博客若使用Cloudflare部署后，使用waline会无法显示评论者ip，参考这个[解决办法](https://blog.xgclevo.top/posts/7824742a/)。
 
 本博客的waline额外应用了这些组件/功能：[Cloudflare Turnstile](https://www.cloudflare-cn.com/application-services/products/turnstile/)与[服务器环境变量](https://waline.js.org/reference/server/env.html)。
 
