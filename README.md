@@ -1,5 +1,7 @@
 # Kusanali Blog
 
+English | [简体中文](./README-zh-CN.md)
+
 My personal blog is built using Astro, and the template used is [Astro Theme Pure](https://github.com/cworld1/astro-theme-pure).
 
 Welcome to [Kusanali Blog](https://kusanali.top)!
