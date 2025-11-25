@@ -2,6 +2,7 @@
 
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
+import AcademicSection from '@/components/projects/AcademicSection.astro'
 
 const headings = [
   { depth: 2, slug: 'academic-papers', text: 'Academic Papers' },
@@ -11,7 +12,7 @@ const headings = [
 ---
 <PageLayout title='Projects' {headings} view>
   <h2 id='academic-papers'>Academic Papers</h2>
-  <ProjectSection
+  <AcademicSection
     projects={[
       {
         name:'Iridium-based electrocatalysts for the hydrogen oxidation reaction toward alkaline exchange membrane fuel cells',
@@ -32,7 +33,7 @@ const headings = [
   />
 
   <h2 id='patents'>Patents</h2>
-  <ProjectSection
+  <AcademicSection
     class='my-2'
     projects={[
       {
