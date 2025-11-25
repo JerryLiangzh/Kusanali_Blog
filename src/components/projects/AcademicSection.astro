@@ -2,7 +2,6 @@
 import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
 import type { iconsType } from 'packages/pure/types'
-import { Icon } from 'packages/pure/components/user'
 import { cn } from 'packages/pure/utils'
 
 interface Project {
@@ -14,7 +13,6 @@ interface Project {
   year?: string       // 可选：发表年份
   tags?: string[]     // 可选：标签（如 Preprint/Published）
   links: {
-    type?: string
     href: string
   }[]
 }
@@ -114,23 +112,6 @@ const projectIconSet: Record<string, iconsType> = {
                 </div>
               )}
               
-              <!-- 链接按钮 -->
-              <div class='flex flex-row items-center gap-x-2 sm:gap-x-3 pt-2'>
-                {project.links.map((link) => {
-                  const icon = projectIconSet[link.type]
-                  return (
-                    <a
-                      href={link.href}
-                      class='rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground'
-                      aria-label={link.type}
-                      target='_blank'
-                      rel="noopener noreferrer"
-                    >
-                      <Icon class='size-5' name={icon} />
-                    </a>
-                  )
-                })}
-              </div>
             </div>
           </div>
         )
