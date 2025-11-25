@@ -1,36 +1,45 @@
 ---
 
-import { Collapse } from 'packages/pure/components/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
+  { depth: 2, slug: 'academic-papers', text: 'Academic Papers' },
+  { depth: 2, slug: 'patents', text: 'Patents' },
   { depth: 2, slug: 'others', text: 'Others' },
 ]
 ---
-
 <PageLayout title='Projects' {headings} view>
-  <h2 id='programs'>Programs</h2>
+  <h2 id='academic-papers'>Academic Papers</h2>
   <ProjectSection
     projects={[
-      
+      {
+        name:'Iridium-based electrocatalysts for the hydrogen oxidation reaction toward alkaline exchange membrane fuel cells',
+        description:'Review',
+        links:[{type:'site', href:'https://doi.org/10.1039/d4ta07777f'}]
+      },
+      {
+        name:'Synergetic catalysis between rare earth-doped g-C<sub>3</sub>N<sub>4</sub> and Pt toward enhanced hydrogen oxidation',
+        description:'Research',
+        links:[{type:'site', href:'https://doi.org/10.26599/NR.2025.94907349'}]
+      },
+      {
+        name:'High-entropy materials for electrocatalytic oxygen reduction reaction',
+        description:'Review',
+        links:[{type:'site', href:'https://doi.org/10.1039/d5ta03392f'}]
+      }
     ]}
   />
-  <Collapse title='Some old projects'>
-    <ProjectSection
-      projects={[
-        
-      ]}
-    />
-  </Collapse>
 
-  <h2 id='learnings'>Learnings</h2>
+  <h2 id='patents'>Patents</h2>
   <ProjectSection
     class='my-2'
     projects={[
-      
+      {
+        name:'一种富含高催化活性面的钯纳米颗粒及其制备方法和应用',
+        description:'In the substantive review stage',
+        links:[{type:'site', href:'http://epub.cnipa.gov.cn/patent/CN118832179A'}]
+      }
     ]}
   />
 
