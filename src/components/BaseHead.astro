@@ -2,6 +2,7 @@
 import { prod } from 'packages/pure/utils/server'
 import type { SiteMeta } from 'packages/pure/types'
 import config from '@/site-config'
+import { Font } from 'astro:assets'
 
 type Props = SiteMeta
 
@@ -9,7 +10,7 @@ const { articleDate, description, ogImage, title } = Astro.props
 
 const siteTitle = `${title} ${config.titleDelimiter} ${config.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', Astro.url).href
+const socialImageURL = new URL(ogImage ? ogImage : config.socialCard, Astro.url).href
 ---
 
 <meta charset='utf-8' />
@@ -18,20 +19,20 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 <title>{siteTitle}</title>
 
 {/* Icons / Favicon */}
-<link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
+<link rel='icon' type={config.favicon.type} href={config.favicon.href} />
+<link rel='shortcut icon' type={config.favicon.type} href={config.favicon.href} />
 <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png' />
 <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png' />
+<link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
 <link rel='manifest' href='/favicon/site.webmanifest' />
 
 {/* Font preloads */}
-<link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
-<link
-  rel='preload'
-  href='/fonts/Satoshi-VariableItalic.ttf'
-  as='font'
-  type='font/ttf'
-  crossorigin
-/>
+<Font cssVariable='--font-satoshi' preload={[{ subset: 'latin', style: 'normal' }]} />
+<style>
+  body {
+    font-family: var(--font-satoshi);
+  }
+</style>
 
 {/* Canonical URL */}
 <link rel='canonical' href={canonicalURL} />
