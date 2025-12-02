@@ -18,3 +18,5 @@ tags: ["生日"]
 没有把生日告诉其他人。除了一位早早为了今天而准备的好友，在下午送了我一些游戏周边外，整天都是静悄悄的，只有Artemis的Fit Logs中淡橙底色的R-factor与我相伴。但我还是很高兴，因为今天是生日，这就够了。
 
 ![纳西妲生日快乐！](https://images.kusanali.top/Nahida-2025-birthday.png)
+
+<video controls src="https://images.kusanali.top/Nahida-Character-Presentation.mp4" height='270' width='480'></video>
