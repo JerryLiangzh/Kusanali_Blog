@@ -2,9 +2,9 @@
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-import { Paginator, PostPreview } from 'astro-pure/components/pages'
-import { getBlogCollection, getUniqueTags, sortMDByDate } from 'astro-pure/server'
-import { Button } from 'astro-pure/user'
+import { Paginator, PostPreview } from 'packages/pure/components/pages'
+import { getBlogCollection, getUniqueTags, sortMDByDate } from 'packages/pure/utils/server'
+import { Button } from 'packages/pure/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
 
@@ -52,7 +52,7 @@ const paginationProps = {
 }
 ---
 
-<PageLayout {meta}>
+<PageLayout {meta} highlightColor='#7db83d'>
   <Button title='Back' href='/blog' variant='back' />
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>

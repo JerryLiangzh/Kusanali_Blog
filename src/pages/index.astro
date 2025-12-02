@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets'
 
-import { Quote } from 'astro-pure/advanced'
-import { PostPreview } from 'astro-pure/components/pages'
-import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
-import { Button, Card, Icon, Label } from 'astro-pure/user'
+import { Quote } from 'packages/pure/components/advanced'
+import { PostPreview } from 'packages/pure/components/pages'
+import { getBlogCollection, sortMDByDate } from 'packages/pure/utils/server'
+import { Button, Card, Icon, Label } from 'packages/pure/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import Section from '@/components/home/Section.astro'
 import avatar from '@/assets/avatar.png'
@@ -32,7 +32,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='Source code'
+            title='Github'
             as='a'
             href='https://github.com/JerryLiangzh'
             target='_blank'
@@ -47,7 +47,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Chemistry student / Entry-level developer</p>
+        <p class='text-muted-foreground'>Chemistry student / Entry-level researcher</p>
         <p class='text-muted-foreground'>
           你好，我是Jerry Liangzh，北师大化学专业本科生，目前的研究兴趣是金属基电催化剂的结构设计、精准合成及性能、机理研究。
         </p>
@@ -78,7 +78,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         >
           <img
             class='absolute end-0 z-0 m-0 -my-3 h-full w-1/2 object-cover opacity-40'
-            src='images/BNU.webp'
+            src='images/BNU.svg'
             alt='University attended during my undergraduate stage'
           />
         </Card>

@@ -33,7 +33,8 @@ export const SocialLinksSchema = () =>
           bilibili: 'Bilibili',
           zhihu: 'Zhihu',
           coolapk: 'Coolapk',
-          netease: 'NetEase'
+          netease: 'NetEase',
+          researchgate: 'ResearchGate'
         }[key]
         labelledLinks[key] = { label, url }
       }

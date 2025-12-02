@@ -1,6 +1,6 @@
 ---
-import { Button, CardList } from 'astro-pure/user'
-import { cn } from 'astro-pure/utils'
+import { Button, CardList } from 'packages/pure/components/user'
+import { cn } from 'packages/pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import { integ, terms } from '@/site-config'
 
@@ -10,7 +10,7 @@ const meta = {
 }
 ---
 
-<PageLayout {meta}>
+<PageLayout {meta} highlightColor='#7db83d'>
   <Button title='Back' href='/' variant='back' />
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
@@ -20,8 +20,6 @@ const meta = {
     <div id='content' class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integ.typography.class)}>
       <h2 class='text-xl font-medium'>Site policy documentation</h2>
       <CardList {...terms} />
-      <h2 class='text-xl font-medium'>Help Information</h2>
-      <p>You need to add md files in this directory.</p>
     </div>
   </main>
 </PageLayout>
