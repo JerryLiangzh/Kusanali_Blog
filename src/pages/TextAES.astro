@@ -793,6 +793,9 @@
         await navigator.clipboard.writeText(resultText);
         alert('✅ 结果已复制到剪贴板');
       } catch {
+        // 降级方案：document.execCommand 已弃用但广泛支持
+        // 仅在 navigator.clipboard 不可用时使用（如 HTTP 环境）
+        // 2025年主流浏览器仍支持此 API
         const textarea = document.createElement('textarea');
         textarea.value = resultContent.innerText;
         document.body.appendChild(textarea);
