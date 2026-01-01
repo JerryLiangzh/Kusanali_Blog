@@ -12,4 +12,4 @@ tags: ["经验分享"]
 
 我负责前大半部分的分享。本人有个习惯，即在利用PPT进行演讲或展示时，不喜欢做一个PPT Reader，因此PPT上往往只有必要的图片或文字充当提示，真正的内容则储于心中，待演讲或展示时依序拿出。本PPT亦是如此。但考虑到线上阅读本PPT与线下分享时的差异，以及有些slides仅凭页面已有内容可能难以弄清我想讲什么，因此我对这些slides中可以修改的部分进行了必要的改动，提高了可读性。
 
-[PPT下载](https://images.kusanali.top/Freshman_Guide.pptx)
+[PPT下载](https://images.kusanali.top/freshman-guide.pptx)
