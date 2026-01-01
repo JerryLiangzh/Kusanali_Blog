@@ -7,11 +7,12 @@ import { Button, FormattedDate, Icon } from '../user'
 
 type Props<T extends CollectionKey> = {
   post: CollectionEntry<T>
-  detailed?: boolean
+  detailed?: boolean // 控制是否在主页显示头图与描述
+  showMeta?: boolean // 控制是否显示元信息（阅读时间、语言、标签）
   class?: string
 }
 
-const { post, detailed = false, class: className } = Astro.props
+const { post, detailed = false, showMeta = true, class: className } = Astro.props
 const { id, data } = post
 const { remarkPluginFrontmatter } = await render(post)
 const postDate = data.updatedDate ?? data.publishDate
@@ -89,30 +90,36 @@ const postDate = data.updatedDate ?? data.publishDate
             >
               {data.description}
             </p>
-            <div class='py-2 flex items-center gap-2 text-sm italic leading-4 text-muted-foreground'>
-              {/* reading time */}
-              <span class='flex items-center gap-1'>
-                <Icon name='time' class='size-4' />
-                {remarkPluginFrontmatter.minutesRead}
-              </span>
-              {/* language */}
-              {data.language && (
-                <span class='flex items-center gap-1'>
-                  <Icon name='earth' class='size-4' />
-                  {data.language}
-                </span>
-              )}
-            </div>
-            {data.tags.length > 0 && (
-              <object>
-                <ul class='tag-list mt-1 flex gap-2'>
-                  {data.tags.map((tag: string) => (
-                    <li>
-                      <Button as='a' title={tag} href={`/tags/${tag}`} variant='pill' />
-                    </li>
-                  ))}
-                </ul>
-              </object>
+            
+            {/* 元信息部分：阅读时间、语言、标签 */}
+            {showMeta && (
+              <>
+                <div class='py-2 flex items-center gap-2 text-sm italic leading-4 text-muted-foreground'>
+                  {/* reading time */}
+                  <span class='flex items-center gap-1'>
+                    <Icon name='time' class='size-4' />
+                    {remarkPluginFrontmatter.minutesRead}
+                  </span>
+                  {/* language */}
+                  {data.language && (
+                    <span class='flex items-center gap-1'>
+                      <Icon name='earth' class='size-4' />
+                      {data.language}
+                    </span>
+                  )}
+                </div>
+                {data.tags.length > 0 && (
+                  <object>
+                    <ul class='tag-list mt-1 flex gap-2'>
+                      {data.tags.map((tag: string) => (
+                        <li>
+                          <Button as='a' title={tag} href={`/tags/${tag}`} variant='pill' />
+                        </li>
+                      ))}
+                    </ul>
+                  </object>
+                )}
+              </>
             )}
           </>
         )
