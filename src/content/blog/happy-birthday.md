@@ -7,7 +7,8 @@ author: 'Jerry Liangzh'
 tags: ["生日"]
 featured: true
 heroImage: {
-    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post'
+    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post',
+    width: 1600, height: 720
 }
 
 ---
