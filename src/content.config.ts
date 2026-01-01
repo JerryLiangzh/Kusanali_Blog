@@ -51,6 +51,7 @@ const docs = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      featured: z.boolean().optional().default(false),
       // Special fields
       order: z.number().default(999)
     })
