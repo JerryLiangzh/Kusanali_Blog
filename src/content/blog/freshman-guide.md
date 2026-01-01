@@ -6,7 +6,10 @@ description: '给大一新生的经验分享'
 author: 'Jerry Liangzh'
 tags: ["经验分享"]
 featured: false
-
+heroImage: {
+    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post',
+    width: 1600, height: 720
+}
 ---
 
 应导师邀请，我会在12月21日和22级的学姐一起，为她作为“新生导师”所带的几位大一新生做一次经验分享。除根据北师大相关规定与语言学习规律做的四六级备考与应试策略外，其余内容偏向于学术入门指南，旨在为新生中有意于接触科研者提供力所能及的帮助。
