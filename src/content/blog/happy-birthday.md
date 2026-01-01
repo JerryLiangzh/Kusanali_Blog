@@ -5,6 +5,10 @@ publishDate: 2025-11-23
 description: '第三个十年开始了'
 author: 'Jerry Liangzh'
 tags: ["生日"]
+featured: true
+heroImage: {
+    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post'
+}
 
 ---
 

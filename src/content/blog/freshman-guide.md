@@ -5,6 +5,7 @@ publishDate: 2025-12-20
 description: '给大一新生的经验分享'
 author: 'Jerry Liangzh'
 tags: ["经验分享"]
+featured: false
 
 ---
 
