@@ -1,42 +1,51 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+// import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
 // Local integrations
-// Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings'
 // Shiki
 import {
+  addCollapse,
   addCopyButton,
   addLanguage,
   addTitle,
+  updateStyle
+} from './src/plugins/shiki-custom-transformers'
+import {
   transformerNotationDiff,
   transformerNotationHighlight,
-  updateStyle
-} from './src/plugins/shiki-transformers'
+  transformerRemoveNotationEscape
+} from './src/plugins/shiki-offical/transformers'
 import config from './src/site.config'
 
 // https://astro.build/config
 export default defineConfig({
-  // Top-Level Options
+  // [Basic]
   site: 'https://kusanali.top',
-  // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
+  // Deploy to a sub path
+  // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
   trailingSlash: 'never',
+  // root: './my-project-directory',
+  server: { 
+    host: true, 
+    allowedHosts: ['kusanali.top'] 
+  },
+  
 
-  // Adapter
+  // [Adapter]
   // https://docs.astro.build/en/guides/deploy/
-  // 1. Vercel (serverless)
+  // adapter: vercel(),
   output: 'static',
-  // 2. Vercel (static)
-  // adapter: vercelStatic(),
-  // 3. Local (standalone)
+  // Local (standalone)
   // adapter: node({ mode: 'standalone' }),
   // output: 'server',
-  // ---
 
+  // [Assets]
   image: {
     responsiveStyles: true,
     domains:['https://images.kusanali.top'],
@@ -45,27 +54,7 @@ export default defineConfig({
     }
   },
 
-  integrations: [
-    // astro-pure will automatically add sitemap, mdx & unocss
-    // sitemap(),
-    // mdx(),
-    AstroPureIntegration(config)
-    // @playform/compress have potential build issue with this template
-    // (await import('@playform/compress')).default({ SVG: false, Exclude: ['index.*.js'] })
-
-    // Temporary fix vercel adapter
-    // static build method is not needed
-  ],
-  // root: './my-project-directory',
-
-  // Prefetch Options
-  prefetch: true,
-  // Server Options
-  server: {
-    host: true,
-    allowedHosts: ['kusanali.top']
-  },
-  // Markdown Options
+  // [Markdown]
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [
@@ -87,17 +76,40 @@ export default defineConfig({
         dark: 'github-dark'
       },
       transformers: [
+        // Official transformers
         transformerNotationDiff(),
         transformerNotationHighlight(),
+        transformerRemoveNotationEscape(),
+        // Custom transformers
         updateStyle(),
         addTitle(),
         addLanguage(),
-        addCopyButton(2000)
+        addCopyButton(2000), // timeout in ms
+        addCollapse(15) // max lines that needs to collapse
       ]
     }
   },
+
+  // [Integrations]
+  integrations: [
+    // astro-pure will automatically add sitemap, mdx & unocss
+    // sitemap(),
+    // mdx(),
+    AstroPureIntegration(config)
+    // Compress recommend
+    // https://docs.astro.build/en/guides/integrations-guide/partytown/
+  ],
+
+  // [Experimental]
   experimental: {
-    contentIntellisense: true, // allow vscode plugin to support *mdx files
+    // Allow compatible editors to support intellisense features for content collection entries
+    // https://docs.astro.build/en/reference/experimental-flags/content-intellisense/
+    contentIntellisense: true,
+    // Enable SVGO optimization for SVG assets
+    // https://docs.astro.build/en/reference/experimental-flags/svg-optimization/
+    svgo: true,
+    // Enable font preloading and optimization
+    // https://docs.astro.build/en/reference/experimental-flags/fonts/
     fonts: [
       {
         provider: fontProviders.fontshare(),
@@ -108,6 +120,7 @@ export default defineConfig({
         // styles: ["normal", "italics"],
         // subsets: ["cyrillic-ext", "cyrillic", "greek-ext", "greek", "vietnamese", "latin-ext", "latin"],
         // fallbacks: ["sans-serif"],
+        styles: ['normal', 'italic'],
         weights: [400, 500],
         subsets: ['latin']
       }

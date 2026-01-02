@@ -10,7 +10,7 @@ import Section from '@/components/home/Section.astro'
 import avatar from '@/assets/avatar.png'
 import config from '@/site-config'
 
-const MAX_POSTS = 10
+const MAX_POSTS = 7
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
@@ -59,7 +59,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
-                  <PostPreview post={p} />
+                  <PostPreview post={p} detailed={p.data.featured || false} showMeta={false}/>
                 </li>
               ))}
             </ul>
