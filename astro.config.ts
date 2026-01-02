@@ -19,7 +19,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerRemoveNotationEscape
-} from './src/plugins/shiki-offical/transformers'
+} from './src/plugins/shiki-official/transformers'
 import config from './src/site.config'
 
 // https://astro.build/config

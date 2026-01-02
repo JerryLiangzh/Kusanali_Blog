@@ -56,6 +56,12 @@ const { class: className } = Astro.props
   if (walineConfig.enable) customElements.define('comment-component', Comment)
 </script>
 
+{
+  config.integ.waline.showMeta &&(
+    <style> #waline :global(.wl-meta) { display: none; } </style>
+  )
+}
+
 <style>
   /* Basic theme */
   #waline {
@@ -106,9 +112,6 @@ const { class: className } = Astro.props
   }
   #waline :global(a) {
     display: inline-block;
-  }
-  #waline :global(.wl-item, .wl-card-item) {
-    overflow: hidden;
   }
 
   /* Reaction buttons */
