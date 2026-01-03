@@ -38,12 +38,12 @@ const { meta, highlightColor, back = '/', ...props } = Astro.props
       <div id='content-header' class='animate'>
         <slot name='header' />
       </div>
-
+      <!-- Original:mt-8 -->
       {/* Content */}
       <div
         id='content'
         class={cn(
-          'max-w-none animate mt-8 md:min-w-[45ch] overflow-x-hidden',
+          'max-w-none animate mt-6 md:min-w-[45ch] overflow-x-hidden',
           integ.typography.class
         )}
       >
