@@ -53,7 +53,7 @@ span.katex-display {
 
 /* [Shiki basic] */
 .astro-code {
-  margin-top: 0; /*Original:0.5rem*/
+  margin-top: 0.5rem; /*Original:0.5rem*/
   margin-bottom: 0.5rem;
   border-radius: 0.75rem;
   /* biome-ignore lint/complexity/noImportantStyles: this is to cover the declaimed style */
