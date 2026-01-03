@@ -6,10 +6,6 @@ description: '第三个十年开始了'
 author: 'Jerry Liangzh'
 tags: ["生日"]
 featured: false
-heroImage: {
-    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post',
-    width: 2048, height: 1152
-}
 
 ---
 
