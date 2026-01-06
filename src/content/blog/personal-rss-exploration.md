@@ -2,6 +2,7 @@
 
 title: '个人向RSS折腾记录'
 publishDate: 2026-01-06
+updatedDate: 2026-01-07
 description: '一些RSS探索经历'
 author: 'Jerry Liangzh'
 tags: ["RSS"]
@@ -27,7 +28,7 @@ RSS的订阅方式有很多。
 
 ![RSS Icon](https://images.kusanali.top/rss-icon.png)
 
-[少数派](https://sspai.com)、[超能网](https://www.expreview.com)、[CWorld Site](https://cworld0.com)以及[Simon Willison’s Weblog](https://simonwillison.net)都在此列。如果没有找到，也不代表网站并没有提供。以[RSSHub的GitHub Releases](https://github.com/DIYgod/RSSHub-Radar/releases)为例，其页面并未放置相关图标，此时可借助浏览器扩展[RSS Radar](https://github.com/DIYgod/RSSHub-Radar)自动发现和生成订阅地址。该扩展也内置了部分站点的汇总源。
+[少数派](https://sspai.com)、[超能网](https://www.expreview.com)、[CWorld Site](https://cworld0.com)以及[Simon Willison’s Weblog](https://simonwillison.net)都在此列。如果没有找到，也不代表网站并没有提供。以[RSSHub Radar的GitHub Releases](https://github.com/DIYgod/RSSHub-Radar/releases)为例，其页面并未放置相关图标，此时可借助浏览器扩展[RSSHub Radar](https://github.com/DIYgod/RSSHub-Radar)自动发现和生成订阅地址。该扩展也内置了部分站点的汇总源。
 
 ![RSS Radar](https://images.kusanali.top/rsshubradar.png)
 
