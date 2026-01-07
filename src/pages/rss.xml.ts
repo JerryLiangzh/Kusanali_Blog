@@ -69,12 +69,19 @@ const GET = async (context: AstroGlobal) => {
     site: import.meta.env.SITE,
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({
-        pubDate: post.data.publishDate,
-        link: `/blog/${post.id}`,
-        customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
+        const updateTimestamp = post.data.updateDate ? `?u=${post.data.updateDate.getTime()}`: '',
+        const guid = `${siteUrl}blog/${post.id}${updateTimestamp}`,
+
+        return{
+          pubDate: post.data.publishDate,
+          link: `/blog/${post.id}`,
+          guid: guid,
+          customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
           <enclosure url="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />`,
-        content: await renderContent(post, siteUrl),
-        ...post.data
+          content: await renderContent(post, siteUrl),
+          ...post.data
+        }
+        
       }))
     )
   })
