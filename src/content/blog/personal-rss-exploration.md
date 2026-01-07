@@ -2,7 +2,7 @@
 
 title: '个人向RSS折腾记录'
 publishDate: 2026-01-06
-updatedDate: 2026-01-07
+updatedDate: 2026-01-08
 description: '一些RSS探索经历'
 author: 'Jerry Liangzh'
 tags: ["RSS"]
@@ -40,15 +40,13 @@ RSS的订阅方式有很多。
 
 有了RSS订阅源，现在应该考虑如何阅读它们了。一般而言，RSS阅读器可分为2类：
 
-一是在线阅读器，以[Folo](https://github.com/RSSNext/Folo)、[Inoreader](https://www.inoreader.com)、[Feedly](https://feedly.com)与[Readwise Reader](https://readwise.io)为代表，自带服务器同步，只需要注册账号，即可在各种平台/设备间无缝阅读。当然，这类阅读器也有basic plan或free plan限制，比如上限订阅100/150个源、隐藏订阅需要更高级的套餐等等。
+一是**在线阅读器**，以[Folo](https://github.com/RSSNext/Folo)、[Inoreader](https://www.inoreader.com)、[Feedly](https://feedly.com)与[Readwise Reader](https://readwise.io)为代表，自带服务器同步，只需要注册账号，即可在各种平台/设备间无缝阅读。当然，这类阅读器也有basic plan或free plan限制，比如上限订阅100/150个源、隐藏订阅需要更高级的套餐等等。二是**本地阅读器**，以[Fluent Reader](https://github.com/yang991178/fluent-reader)、[ReadYou](https://github.com/ReadYouApp/ReadYou)和[RSS Guard](https://github.com/martinrotter/rssguard)等为代表。这些阅读器支持使用本地存储，通过手动添加RSS订阅源或OPML文件引入RSS信息流。当然，它们不少也支持在线账号登录，比如Inoreader、FreshRSS等等。
 
-二是本地阅读器，以[Fluent Reader](https://github.com/yang991178/fluent-reader)、[ReadYou](https://github.com/ReadYouApp/ReadYou)和[RSS Guard](https://github.com/martinrotter/rssguard)等为代表。这些阅读器支持使用本地存储，通过手动添加RSS订阅源或OPML文件引入RSS信息流。当然，它们不少也支持在线账号登录，比如Inoreader、FreshRSS等等。
-
-在RSS Reader以及稍后要谈到的自建RSS订阅中，订阅源的内容获取方式分为三档，差异直接影响阅读体验：
-
-**Feed正文**是直接解析RSS feed里的<content>或<description>标签。优点是快速省流量，缺点是很多站点只提供摘要。比如某博客的RSS只输出前200字，点“阅读全文”才能看完整代码示例。**网页正文**是让RSS Reader充当爬虫，抓取目标页面的完整内容。这对WordPress、Ghost等标准博客最管用，但碰到反爬严格或前端动态渲染的站点会失效。**加载网页**是终极方案：直接在RSS阅读器内嵌入原网页，RSS Reader会请求并渲染原站，相当于内置浏览器，不过渲染效果可能终究比不上真正的浏览器。
+在RSS Reader以及稍后要谈到的自建RSS订阅中，订阅源的内容获取方式分为三档，差异直接影响阅读体验：**Feed正文**是直接解析RSS feed里的<content>或<description>标签。优点是快速省流量，缺点是很多站点只提供摘要。比如某博客的RSS只输出前200字，点“阅读全文”才能看完整代码示例。**网页正文**是让RSS Reader充当爬虫，抓取目标页面的完整内容。这对WordPress、Ghost等标准博客最管用，但碰到反爬严格或前端动态渲染的站点会失效。**加载网页**是终极方案，直接在RSS阅读器内嵌入原网页，RSS Reader会请求并渲染原站，相当于内置浏览器，只是渲染效果可能终究比不上真正的浏览器。不过不必过于担心，现在大多数RSS Reader都支持在文章、订阅源层面对获取方式进行修改，如果对Reader渲染效果不满意，还可以在设置中选择调用设备上的浏览器。
 
 对我个人而言，Windows端我推荐Fluent Reader，遵循Fluent Design，可以通过其GitHub Releases免费下载；Android端可以使用[Fluent Reader Lite](https://github.com/yang991178/fluent-reader-lite)与ReadYou，前者是iOS的UI风格，后者则是经典的Material You设计。不过要注意的是，Fluent Reader Lite并不支持本地直接订阅RSS源，需要账户登录或导入OPML文件。除此之外，如果是Linux或iOS/MacOS，Fluent Reader也都是一个不错的选择，在界面优美的同时支持不少功能设置，很好地履行了一个RSS Reader的职责。
+
+在AI逐渐走入生活的方方面面的今天，RSS Reader与AI结合不是什么罕见之事。如果偏好或需要AI进行总结、翻译与讨论，不妨考虑AI功能较为完善的Folo，或是需要配置API的其他RSS Reader，比如[MrRSS](https://github.com/WCY-dt/MrRSS)。
 
 ## 自建RSS订阅
 
