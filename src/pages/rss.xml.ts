@@ -68,10 +68,10 @@ const GET = async (context: AstroGlobal) => {
     description: config.description,
     site: import.meta.env.SITE,
     items: await Promise.all(
-      allPostsByDate.map(async (post) => ({
-        const updateTimestamp = post.data.updateDate ? `?u=${post.data.updateDate.getTime()}`: '',
-        const guid = `${siteUrl}blog/${post.id}${updateTimestamp}`,
-
+      allPostsByDate.map(async (post) => {
+        const lastDate = post.data.updatedDate ?? post.data.publishDate
+        const updateTimestamp = lastDate ? `?u=${lastDate.getTime()}` : ''
+        const guid = `${siteUrl.origin}/blog/${post.id}${updateTimestamp}`
         return{
           pubDate: post.data.publishDate,
           link: `/blog/${post.id}`,
@@ -82,7 +82,7 @@ const GET = async (context: AstroGlobal) => {
           ...post.data
         }
         
-      }))
+      })
     )
   })
 }
