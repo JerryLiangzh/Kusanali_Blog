@@ -9,7 +9,7 @@ featured: false
 heroImage: {
     src: 'https://images.kusanali.top/ratio-test.png', alt: 'Table of content for this post',
     width: 2560, height: 1440
-
+}
 ---
 
 ## 一些感言
