@@ -6,10 +6,7 @@ description: '第三个十年开始了'
 author: 'Jerry Liangzh'
 tags: ["生日"]
 featured: false
-heroImage: {
-    src: 'https://images.kusanali.top/ratio-test.jpg', alt: 'Table of content for this post',
-    width: 2560, height: 1440
-}
+
 ---
 
 ## 一些感言
