@@ -7,10 +7,6 @@ description: '一些RSS探索经历'
 author: 'Jerry Liangzh'
 tags: ["RSS"]
 featured: false
-heroImage: {
-    src: 'https://images.kusanali.top/Nahida-character-illustration.png', alt: 'Table of content for this post',
-    width: 2048, height: 1152
-}
 
 ---
 
