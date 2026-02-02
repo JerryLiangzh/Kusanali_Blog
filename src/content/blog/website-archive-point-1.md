@@ -2,6 +2,7 @@
 
 title: '建站存档点 - 1'
 publishDate: 2025-11-16
+updatedDate: 2026-02-02
 description: '建站记录'
 author: 'Jerry Liangzh'
 tags: ["建站"]
@@ -28,11 +29,13 @@ Cloudflare Pages部署，可见[Astro + Cloudflare pages 快速搭建个人博�
 
 ## waline与umami引入
 
-waline的引入我并不局限于简单的构建使用，而是额外参考了[Astro 修改(4) -- 更快、更安全的 Waline 评论](https://blog.ixiaocai.net/posts/Astro-Blog-Customize-4-Waline-Enhancement/)。但其中MongoDB的部分，其中部分页面与现在部署的页面有不少区别，当初我折腾了一晚上也没能成功，因此还是得用LeanCloud。其余可见[waline文档](https://waline.js.org/guide/)与[Astro Theme Pure中关于Comment system的配置](https://astro-pure.js.org/docs/integrations/comment)。不过博客若使用Cloudflare部署后，使用waline会无法显示评论者ip，参考这个[解决办法](https://blog.xgclevo.top/posts/7824742a/)。
+waline的引入我并不局限于简单的构建使用，而是额外参考了[Astro 修改(4) -- 更快、更安全的 Waline 评论](https://blog.ixiaocai.net/posts/Astro-Blog-Customize-4-Waline-Enhancement/)。但其中MongoDB的部分，其中部分页面与现在部署的页面有不少区别，当初我折腾了一晚上也没能成功，因此还是得用LeanCloud。其余可见[waline文档](https://waline.js.org/guide/)与[Astro Theme Pure中关于Comment system的配置](https://astro-pure.js.org/docs/integrations/comment)。不过博客若使用Cloudflare部署后，使用waline会无法显示评论者ip，参考xgclevo的[解决办法](https://blog.xgclevo.top/posts/7824742a/)。
 
 本博客的waline基础配置，如emoji、表情包搜索与Markdown预览等，是继承自Astro theme pure的；于此基础上，还启用了这些组件/功能：[Cloudflare Turnstile](https://www.cloudflare-cn.com/application-services/products/turnstile/)，及[服务器环境变量](https://waline.js.org/reference/server/env.html)中的IPQPS（5秒）、MARKDOWN_SUP、MARKDOWN_SUB、MARKDOWN_TEX（mathjax）。
 
 umami则见[umami官方文档](https://umami.is/docs)与[Umami博客访问统计Vercel+Cloudflare Wokers部署](https://myblog.kemiaofx.cn/posts/2025-04-06-Umami-deploy)。
+
+>2026.02.02 Update：实现了MongoDB的部署，由于篇幅原因，单开一篇，详见[建站记录 - 2](https://kusanali.top/blog/web-archive-point-2)
 
 ## 图床构建
 
