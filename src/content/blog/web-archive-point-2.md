@@ -13,21 +13,21 @@ featured: false
 
 ![leancloud stop service](https://images.kusanali.top/leancloud-stop-service.png)
 
-而Kusanali Blog就是用了LeanCloud作为评论系统的存储服务。借此机会，可以把[建站记录 - 1](https://kusanali.top/blog/web-archive-point-1)里未竟的MongoDB部署重新捡起来研究。
+而Kusanali Blog就是用了LeanCloud作为评论系统的存储服务。借此机会，可以把[建站存档点 - 1](https://kusanali.top/blog/web-archive-point-1)里未竟的MongoDB部署重新捡起来研究。
 
 ## 创建数据库
 
-登录到MongoDB后，选择New Project并Create a cluster
+登录到MongoDB后，选择New Project并Create a cluster；
 
 ![choose mongodb cluster plan](https://images.kusanali.top/choose-mongodb-cluster-plan.png)
 
-接下来还需要修改额外选项。选择离Waline后端最近的Region，然后取消勾选Quick Setup中的Preload sample dataset与Automate security setup即可。
+接下来还需要修改额外选项。选择离Waline后端最近的Region，然后取消勾选Quick Setup中的`Preload sample dataset`与`Automate security setup`即可。
 
 ## 用户权限组与用户
 
-MongoDB为了保证数据库的安全使用，需要创建相应的用户权限组（Custom Roles）以及数据库用户（Database Users）。通过`Project`-`Security`-`Database & Network Access`即可创建。
+MongoDB为了保证数据库的安全使用，需要创建相应的用户权限组（Custom Roles）以及数据库用户（Database Users）。通过`Project` - `Security` - `Database & Network Access`即可创建。
 
-创建用户权限组时，在起名之余，还需要授予全部Collection Actions以及Database Actions and Roles的权限。
+创建用户权限组时，在起名之余，还需要授予全部`Collection Actions`以及`Database Actions and Roles`的权限。
 
 ![add custom role](https://images.kusanali.top/mongodb-add-custom-role.png)
 
@@ -35,7 +35,7 @@ MongoDB为了保证数据库的安全使用，需要创建相应的用户权限�
 
 ![add database user](https://images.kusanali.top/mongodb-add-new-database-user.png)
 
-Custom Roles就选刚刚创建好的那一个，还需要Restrict Access to Specific Clusters并在子列表中选择刚刚创建的Cluster。
+Custom Roles就选刚刚创建好的那一个，还需要`Restrict Access to Specific Clusters`并在子列表中选择刚刚创建的Cluster。
 
 ![add database user-2](https://images.kusanali.top/mongodb-add-new-database-user-2.png)
 
@@ -62,6 +62,6 @@ Custom Roles就选刚刚创建好的那一个，还需要Restrict Access to Spec
 
 ## 其他注意事项
 
-配置数据库时，最好在`Project`-`Security`-`Database & Network Access`-`IP Access List`里添加允许访问的IP为`0.0.0.0/0`，即允许所有IP访问，可以避免不少麻烦。
+配置数据库时，最好在`Project` - `Security` - `Database & Network Access` - `IP Access List`里添加允许访问的IP为`0.0.0.0/0`，即允许所有IP访问，可以避免不少麻烦。
 
-当然，也有一种据称相对省事的部署办法，就是在Vercel里相应Project下的Storage子项选择`Create a database`–`MongoDB Atlas`，IP Access List以及Cluster创建等等即可一键完成。但据我所试，其实也没有那么省事，一键之后，同样需要创建数据库用户、用户权限组，以及通过Compass获取相应URI，否则就会提示`500: Not initialized`，因为没有用户，`Cluster`-`Browse Collections`里看不到`waline/Users`。
+当然，也有一种据称相对省事的部署办法，就是在Vercel里相应Project下的Storage子项选择`Create a database` – `MongoDB Atlas`，IP Access List以及Cluster创建等等即可一键完成。但据我所试，其实也没有那么省事，一键之后，同样需要创建数据库用户、用户权限组，以及通过Compass获取相应URI，否则就会提示`500: Not initialized`——因为没有创建用户，`Cluster` - `Browse Collections`里看不到`waline/Users`。
