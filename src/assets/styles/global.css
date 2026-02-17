@@ -300,3 +300,14 @@ body::-webkit-scrollbar {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* external links */
+@layer components {
+  .custom-externalLinks {
+    color: #3b82f6; 
+    font-weight: 400; 
+    text-decoration: underline; 
+    text-decoration-color: #3b82f6;
+    text-underline-offset: 4px;
+  }
+}
