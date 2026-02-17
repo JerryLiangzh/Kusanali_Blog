@@ -302,12 +302,10 @@ body::-webkit-scrollbar {
 }
 
 /* external links */
-@layer components {
-  .custom-externalLinks {
-    color: #3b82f6 !important; 
-    font-weight: 400 !important; 
-    text-decoration: underline !important; 
-    text-decoration-color: #3b82f6 !important;
-    text-underline-offset: 4px !important;
-  }
+.prose a:has(.custom-externalLinks) {
+  color: #3b82f6 !important; 
+  font-weight: 400 !important; 
+  text-decoration: underline !important; 
+  text-decoration-color: #3b82f6 !important;
+  text-underline-offset: 4px !important;
 }
