@@ -34,22 +34,3 @@ featured: false
 ## End
 
 我曾担忧过建站后内容产出的问题，不知写点什么，因为在我参考其他博客的过程中，ta们的博文大多与development相关，或者是Computer Science（感觉有点像幸存者偏差？），但我在这方面的水平并没有达到能以博文形式输出点什么的标准。后来我意识到，这个标准并不存在、即使存在也并不合理，更何况我可以在擅长的领域写点什么，或是我手写我心——还是不要被某些东西异化吧，坚守初心、建好本站，便已足够。
-
-```makefile
-# Part 8: IPC 信号量
-CASE =
-
-ifneq ($(CASE),)
-  CFLAGS += -DCASE
-  USER_CFLAGS += -DCASE
-endif
-ifeq ($(CASE), MPMC)
-  TEST_PROGRAM = test_ipc_producer_consumer
-  CFLAGS += -DTYPE_PRODUCER
-  USER_CFLAGS += -DTYPE_PRODUCER
-else ifeq ($(CASE), PHILOSOPHER)
-  TEST_PROGRAM = test_ipc_philosopher
-  CFLAGS += -DTYPE_PHILOSOPHER
-  USER_CFLAGS += -DTYPE_PHILOSOPHER
-endif
-```
