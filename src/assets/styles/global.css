@@ -304,10 +304,10 @@ body::-webkit-scrollbar {
 /* external links */
 @layer components {
   .custom-externalLinks {
-    color: #3b82f6; 
-    font-weight: 400; 
-    text-decoration: underline; 
-    text-decoration-color: #3b82f6;
-    text-underline-offset: 4px;
+    color: #3b82f6 !important; 
+    font-weight: 400 !important; 
+    text-decoration: underline !important; 
+    text-decoration-color: #3b82f6 !important;
+    text-underline-offset: 4px !important;
   }
 }
