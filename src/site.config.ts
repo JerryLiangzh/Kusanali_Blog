@@ -57,7 +57,7 @@ export const theme: ThemeUserConfig = {
   /** Configure the footer of your site. */
   footer: {
     // Year format
-    year: `© ${new Date().getFullYear()}`,
+    year: `© 2025 - ${new Date().getFullYear()}`,
     // year: `© 2019 - ${new Date().getFullYear()}`,
     links: [
       // Registration link
@@ -90,7 +90,7 @@ export const theme: ThemeUserConfig = {
       content: '',
       /** Properties for the external links element */
       properties: {
-        style: 'user-select:none'
+        style: 'user-select:none; color: #3b82f6; font-weight: 400; text-decoration: underline; text-decoration-color: #3b82f6; text-underline-offset: 4px;'
       }
     },
     /** Blog page size for pagination (optional) */

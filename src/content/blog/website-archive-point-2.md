@@ -13,7 +13,7 @@ featured: false
 
 ![leancloud stop service](https://images.kusanali.top/leancloud-stop-service.png)
 
-而Kusanali Blog就是用了LeanCloud作为评论系统的存储服务。借此机会，可以把[建站存档点 - 1](https://kusanali.top/blog/web-archive-point-1)里未竟的MongoDB部署重新捡起来研究。
+而Kusanali Blog就是用了LeanCloud作为评论系统的存储服务。借此机会，可以把[建站存档点 - 1](https://kusanali.top/blog/website-archive-point-1)里未竟的MongoDB部署重新捡起来研究。
 
 ## 创建数据库
 

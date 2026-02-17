@@ -35,7 +35,7 @@ waline的引入我并不局限于简单的构建使用，而是额外参考了[A
 
 umami则见[umami官方文档](https://umami.is/docs)与[Umami博客访问统计Vercel+Cloudflare Wokers部署](https://myblog.kemiaofx.cn/posts/2025-04-06-Umami-deploy)。
 
-<b>2026.02.02 Update</b>：实现了MongoDB的部署，由于篇幅原因，单开一篇，详见[建站存档点 - 2](https://kusanali.top/blog/web-archive-point-2)。
+<b>2026.02.02 Update</b>：实现了MongoDB的部署，由于篇幅原因，单开一篇，详见[建站存档点 - 2](https://kusanali.top/blog/website-archive-point-2)。
 
 ## 图床构建
 
