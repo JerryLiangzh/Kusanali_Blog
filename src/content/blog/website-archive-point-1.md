@@ -33,7 +33,7 @@ waline的引入我并不局限于简单的构建使用，而是额外参考了[A
 
 本博客的waline基础配置，如emoji、表情包搜索与Markdown预览等，是继承自Astro theme pure的；于此基础上，还启用了这些组件/功能：[Cloudflare Turnstile](https://www.cloudflare-cn.com/application-services/products/turnstile/)，及[服务器环境变量](https://waline.js.org/reference/server/env.html)中的IPQPS（5秒）、MARKDOWN_SUP、MARKDOWN_SUB、MARKDOWN_TEX（mathjax）。
 
-umami则见[umami官方文档](https://umami.is/docs)与[Umami博客访问统计Vercel+Cloudflare Wokers部署](https://myblog.kemiaofx.cn/posts/2025-04-06-Umami-deploy)。
+umami则见[umami官方文档](https://umami.is/docs)与[关于页数据统计接入自建umami](https://blog.starsharbor.com/posts/solitude-about_umami/)。
 
 <b>2026.02.02 Update</b>：实现了MongoDB的部署，由于篇幅原因，单开一篇，详见[建站存档点 - 2](https://kusanali.top/blog/website-archive-point-2)。
 
