@@ -24,7 +24,8 @@ import config from '@/site-config'
     }
   }
 
-  const abort = await loadPageview()
+  loadPageview();
+  // const abort = await loadPageview()
   // After 500ms, if the network request has not been completed, cancel this operation
-  setTimeout(() => abort(), 500)
+  // setTimeout(() => abort(), 500)
 </script>
