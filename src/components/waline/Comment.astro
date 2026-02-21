@@ -44,8 +44,9 @@ const { class: className } = Astro.props
 
       walineInit({
         el: '#waline',
-        serverURL: walineConfig.server || '',
+        serverURL: walineConfig.server,
         emoji,
+        path: path: window.location.pathname.replace(/\/$/, '') || '/',
         reaction: ['/icons/heart-item.svg'],
         turnstileKey: "0x4AAAAAACAJi1zEVI1r-dHw",
         pageview: true,
