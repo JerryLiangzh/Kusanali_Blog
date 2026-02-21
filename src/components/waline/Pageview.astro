@@ -11,13 +11,12 @@ import config from '@/site-config'
 >
   async function loadPageview() {
     try {
-      const { pageviewCount } = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
+      const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
       const el = document.querySelector('.waline-pageview-count')
       if (el) {
-        pageviewCount({
-          serverURL: walineServer.replace(/\/$/, ''),
-          path: window.location.pathname,
-          update: true
+        pageview.pageviewCount({
+          serverURL: walineServer,
+          path: window.location.pathname
         })
       }
     } catch (e) {
