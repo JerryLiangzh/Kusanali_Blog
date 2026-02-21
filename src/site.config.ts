@@ -159,6 +159,8 @@ export const integ: IntegrationUserConfig = {
     enable: true,
     // Server service link
     server: 'https://comments.kusanali.top',
+    // Show meta info for comments
+    showMeta: true,
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
