@@ -15,7 +15,7 @@ import config from '@/site-config'
       const el = document.querySelector('.waline-pageview-count')
       if (el) {
         pageview.pageviewCount({
-          serverURL: "https://comments.kusanali.top",
+          serverURL: walineServer,
           path: window.location.pathname
         })
       }
@@ -24,13 +24,7 @@ import config from '@/site-config'
     }
   }
 
-  if (document.readyState === 'complete') {
-    loadPageview();
-  } else {
-    window.addEventListener('load', loadPageview);
-  }
-  //loadPageview();
-  // const abort = await loadPageview()
+  const abort = await loadPageview()
   // After 500ms, if the network request has not been completed, cancel this operation
-  // setTimeout(() => abort(), 500)
+  setTimeout(() => abort(), 500)
 </script>

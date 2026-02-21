@@ -44,13 +44,10 @@ const { class: className } = Astro.props
 
       walineInit({
         el: '#waline',
-        serverURL: "https://comments.kusanali.top",
+        serverURL: walineConfig.server || '',
         emoji,
-        path: window.location.pathname,
         reaction: ['/icons/heart-item.svg'],
         turnstileKey: "0x4AAAAAACAJi1zEVI1r-dHw",
-        pageview: true,
-        comment: true,
         ...walineConfig.additionalConfigs
       })
     }
