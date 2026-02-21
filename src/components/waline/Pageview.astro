@@ -15,8 +15,8 @@ import config from '@/site-config'
       const el = document.querySelector('.waline-pageview-count')
       if (el) {
         pageview.pageviewCount({
-          serverURL: walineServer,
-          path: window.location.pathname.replace(/\/$/, '') || '/'
+          serverURL: "https://comments.kusanali.top",
+          path: window.location.pathname
         })
       }
     } catch (e) {
