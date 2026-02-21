@@ -31,6 +31,7 @@ const { class: className } = Astro.props
     }
 
     connectedCallback() {
+      console.log('Waline: Comment component connected');
       // Prevent Vue log errors
       ;(globalThis as unknown as { __VUE_OPTIONS_API__: boolean }).__VUE_OPTIONS_API__ = true
       ;(globalThis as unknown as { __VUE_PROD_DEVTOOLS__: boolean }).__VUE_PROD_DEVTOOLS__ = false
