@@ -22,10 +22,7 @@ Astro Theme Pure的使用，可见[主题GitHub页面](https://github.com/cworld
 
 Cloudflare Pages部署，可见[Astro + Cloudflare pages 快速搭建个人博客](https://yaoqx.netlify.app/blog/2024-08-15/#heading-5)与[Astro搭建个人博客](https://www.cnblogs.com/yinph/p/18549888)。记得把astro.config.ts中的adapter删除或注释，output内容改为static。
 
-另外，我个人不喜欢我的博客上出现赞助按钮或链接，因此曾花了一段时间研究这个怎么删，昨晚才解开疑惑。之所以需要研究，确实是我比较菜，或者眼瞎。
-要删除，可以：
-- 删除src\components\projects\Sponsorship.astro与src\components\projects\Sponsors.astro；把packages\pure\components\pages\Copyright.astro中关于sponsor的部分删除；删除About&Projects页面的sponsor部分
-- 将各种astro组件或文件中import部分路径从astro-pure改成packages\pure中的具体部分。不过我没有在最开始bun install以安装dependencies，说不定改起来就不会如此麻烦；或可在改完第一点后仅改动packages\pure\package.json中url位置———不过后二种均没试过
+另外，我个人不喜欢我的博客上出现赞助按钮或链接。要删除，可以npm install后，删除src\components\projects\Sponsorship.astro、src\components\projects\Sponsors.astro、packages\pure\components\pages\Copyright.astro中关于sponsor的部分以及About&Projects页面的sponsor部分。
 
 ## waline与umami引入
 
