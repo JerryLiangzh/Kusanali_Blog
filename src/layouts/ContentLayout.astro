@@ -1,14 +1,14 @@
 ---
-import { BackToTop } from 'packages/pure/components/pages'
-import type { SiteMeta } from 'packages/pure/types'
-import { Button, Icon } from 'packages/pure/components/user'
-import { cn } from 'packages/pure/utils'
+import { BackToTop } from 'astro-pure/components/pages'
+import type { SiteMeta } from 'astro-pure/types'
+import { Button, Icon } from 'astro-pure/user'
+import { cn } from 'astro-pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import { integ } from '@/site-config'
 
 interface Props {
   meta: SiteMeta
-  highlightColor: string
+  highlightColor?: string
   back?: string
 }
 
