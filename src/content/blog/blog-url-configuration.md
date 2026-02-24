@@ -30,7 +30,12 @@ Astro theme pure的Docs并未提及此内容，但Astro的Docs倒是有，也就
 ```
 此举会让astro为每个页面都生成一个内含index.html的文件夹，比如构建时就会生成/about/index.html；如果要不带，可以改为`format: 'file'`，此时astro会为每个页面路由创建同名html文件，比如/about.html。加之Cloudflare默认启用[Route matching](https://developers.cloudflare.com/pages/configuration/serving-pages/#route-matching)，即强行忽略URL中的.html后缀并进行302重定向，/about.html重定向到/about、/about/index.html则是/about/，也就是末尾带不带`/`的区别。这是无法手动关闭的。
 
-这样修改后，waline那边就出了问题——这是必然的。但如果只把Pageview.astro和PageInfo.astro都改回默认设置，waline统计功能依旧是失效的，因为这时的`data-path`变成了`/blog/website-archive-point-1.html`——真是按下葫芦浮起瓢。这时可以对PageInfo.astro里的path动手脚，从`const path = Astro.url.pathname`改成`const path = Astro.url.pathname.replace(/(index)?\.html$/, '');`，以此修复`data-path`。
+这样修改后，waline那边就出了问题——这是必然的。但如果只把Pageview.astro和PageInfo.astro都改回默认设置，waline统计功能依旧是失效的，因为这时的`data-path`变成了`/blog/website-archive-point-1.html`——真是按下葫芦浮起瓢。这时可以对PageInfo.astro里的path动手脚:
+```astro
+/* Original code: const path = Astro.url.pathname; */
+const path = Astro.url.pathname.replace(/(index)?\.html$/, '')
+```
+以此修复`data-path`。
 
 当然也可以优雅一些，参考Kukmoon谷月的[用重定向去掉博文的 .html 后缀](https://kukmoon.github.io/3366bd4a8b7d/)。虽然她用的是Valine，但Waline作为With backend Valine，都是根据静态页面的文件名来储存评论数据的。她的办法就是在在虚拟主机和CF Pages两边都配置301跳转，利用Apache的.htaccess文件以及CF Pages的_redirects重定向规则文件。
 
@@ -64,9 +69,17 @@ http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-n
 
 ## 关于SEO与ERR_TOO_MANY_REDIRECTS
 
-虽然本博客的创建与写作初心不是为了什么SEO，但也不代表我可以完全忽视它。在以上改动完成后，我立刻就遇到了浏览器提示的重定向错误，亦即ERR_TOO_MANY_REDIRECTS——在清空cookies后一切看起来又恢复正常。众所周知，URL末尾带不带/对搜索引擎爬虫而言完全是两回事，由此容易导致内容重复与权重分散。为了避免这2点或爬虫抓到大量的404或重定向循环，可以利用_redirects重定向规则文件，内容是`/* / :splat 301`，实现301跳转。
+虽然本博客的创建与写作初心不是为了什么SEO，但也不代表我可以完全忽视它。在以上改动完成后，我立刻就遇到了浏览器提示的重定向错误，亦即ERR_TOO_MANY_REDIRECTS——在清空cookies后一切看起来又恢复正常。众所周知，URL末尾带不带/对搜索引擎爬虫而言完全是两回事，由此容易导致内容重复与权重分散。为了避免这2点或爬虫抓到大量的404或重定向循环，可以利用_redirects重定向规则文件，内容是
+```
+/* / :splat 301
+```
+以实现301跳转。
 
-更彻底地，可以考虑在BaseHead.astro里将Canonical URL改为`href={Astro.url.pathname.replace(/\/$/, '')}`。
+更彻底地，可以考虑在BaseHead.astro里对Canonical URL进行改动
+```astro
+/* Original code: const canonicalURL = new URL(Astro.url.pathname, Astro.site) */
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
+```
 
 ## Cloudflare与Vercel
 
