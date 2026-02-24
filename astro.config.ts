@@ -37,9 +37,9 @@ export default defineConfig({
   },
   
   // Refer to https://docs.astro.build/en/reference/configuration-reference/#buildformat
-  /*build: {
-    format: 'directory'
-  },*/
+  build: {
+    format: 'file'
+  },
 
   // [Adapter]
   // https://docs.astro.build/en/guides/deploy/
