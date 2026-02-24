@@ -31,7 +31,7 @@ const shares = {
   }
 } as const
 
-/* const sharelink = 'https://kusanali.top'+Astro.url.pathname.replace(/(index)?\.html$/, ''); */
+const sharelink = 'https://kusanali.top'+Astro.url.pathname.replace(/(index)?\.html$/, ''); 
 ---
 
 <div
@@ -45,7 +45,7 @@ const shares = {
   {/* title & link */}
   <div class='flex flex-col'>
     <div class='font-medium text-foreground'>{title}</div>
-    <div class='text-sm'>{window.location.pathname}</div>
+    <div class='text-sm'>{sharelink}</div>
   </div>
 
   {/* common info */}
