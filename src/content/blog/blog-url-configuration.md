@@ -5,7 +5,7 @@ publishDate: 2026-02-24
 updatedDate: 2026-02-25
 description: '谈谈建站过程中和url打过的交道'
 author: 'Jerry Liangzh'
-tags: ["建站", "waline", "copyright", "cloudflare pages", "vercel"]
+tags: ["建站", "waline", "copyright", "cloudflare", "vercel"]
 featured: false
 
 ---
