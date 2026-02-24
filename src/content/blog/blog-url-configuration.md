@@ -52,7 +52,11 @@ Astro theme pure的Docs并未提及此内容，但Astro的Docs倒是有，也就
     <div class='text-sm'>{sharelink}</div>
   </div>
 ```
-需要注意的是，如果sharelink没有前半部分的硬编码，Copyright部分生成的字段就会从URL退化成路径，比如`/blog/website-archive-point-1`。当然，Copyright.astro中不止这一处`Astro.url`，但其他部分都是涉及创建分享到第三方平台的链接，比如http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-name.html&title=example-title&pic=，不影响功能，就懒得去改了。
+需要注意的是，如果sharelink没有前半部分的硬编码，Copyright部分生成的字段就会从URL退化成路径，比如`/blog/website-archive-point-1`。当然，Copyright.astro中不止这一处`Astro.url`，但其他部分都是涉及创建分享到第三方平台的链接，比如
+
+`http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-name.html&title=example-title&pic=`
+
+不影响功能，就懒得去改了。
 
 ## 关于SEO与ERR_TOO_MANY_REDIRECTS
 
