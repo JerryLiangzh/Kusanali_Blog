@@ -5,7 +5,7 @@ publishDate: 2026-01-06
 updatedDate: 2026-01-08
 description: '一些RSS探索经历'
 author: 'Jerry Liangzh'
-tags: ["RSS"]
+tags: ["rss", "freshrss", "clawcloud run"]
 featured: false
 
 ---

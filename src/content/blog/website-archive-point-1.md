@@ -5,7 +5,7 @@ publishDate: 2025-11-16
 updatedDate: 2026-02-24
 description: '建站记录'
 author: 'Jerry Liangzh'
-tags: ["建站"]
+tags: ["建站", "cloudflare pages", "waline", "umami", "cloudflare r2", "piclist"]
 featured: false
 
 ---

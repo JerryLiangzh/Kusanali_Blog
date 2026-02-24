@@ -5,7 +5,7 @@ publishDate: 2026-02-02
 updatedDate: 2026-02-17
 description: '建站记录之从LeanCloud向MongoDB迁移'
 author: 'Jerry Liangzh'
-tags: ["建站"]
+tags: ["建站", "mongodb", "waline", "vercel"]
 featured: false
 
 ---

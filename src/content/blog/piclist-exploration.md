@@ -4,7 +4,7 @@ title: '记一次PicList原图预览探索之旅'
 publishDate: 2026-02-19
 description: '非常奇怪'
 author: 'Jerry Liangzh'
-tags: ["piclist"]
+tags: ["piclist", "cloudflare r2"]
 featured: false
 
 ---
