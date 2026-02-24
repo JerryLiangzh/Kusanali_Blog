@@ -36,6 +36,9 @@ export default defineConfig({
     allowedHosts: ['kusanali.top'] 
   },
   
+  build: {
+    format: 'file'
+  },
 
   // [Adapter]
   // https://docs.astro.build/en/guides/deploy/
