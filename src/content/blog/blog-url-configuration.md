@@ -12,9 +12,7 @@ featured: false
 
 2月和URL打了不少交道，从Waline到Copyright等等，总算弄清楚了一些东西、积累了一点经验，这篇文章就当是备忘录吧。本来是以update形式补充在[建站存档点 - 1](https://kusanali.top/blog/website-archive-point-1)里的，但随着对这个点的探索深入，update的篇幅似乎有点喧宾夺主，除非重构整篇文章，那我还不如聚合在一起好了。
 
-## comment-component
-
-### waline
+## waline
 
 首先要谈谈waline，它的统计功能终于启用了。22号那天我在update处提到，从`data-path`入手探索。参考astro theme pure的示例博客以及2位突出贡献者的博客，对他们文章开头的comments右键检查后，`data-path`末尾都是不带`/`的，我也一样；同样地，在astro.config.ts里，`trailingSlash`均为`never`。但我的waline后台管理页面中显示的评论所属的博客文章页面都是尾是带`/`的。我追踪到src\components\waline\Pageview.astro，可无论把其中的path赋值为默认的`window.location.pathname`还是尾带`.replace(/\/$/,'')`的版本，waline的浏览量、评论数统计功能均不能生效——也就是说`data-path`末尾仍是不带`/`，与waline记录无法匹配，故始终显示**0 views | 0 comments**。于是干脆在src\components\waline\PageInfo.astro中把两个`data-path`从`{path}`改成`{path+'/'}`，强行多加一个`/`，就解决了问题。
 
