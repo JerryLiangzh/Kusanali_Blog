@@ -71,7 +71,7 @@ http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-n
 
 虽然本博客的创建与写作初心不是为了什么SEO，但也不代表我可以完全忽视它。在以上改动完成后，我立刻就遇到了浏览器提示的重定向错误，亦即ERR_TOO_MANY_REDIRECTS——在清空cookies后一切看起来又恢复正常。众所周知，URL末尾带不带/对搜索引擎爬虫而言完全是两回事，由此容易导致内容重复与权重分散。为了避免这2点或爬虫抓到大量的404或重定向循环，可以利用_redirects重定向规则文件，内容是
 ```
-/* / :splat 301
+/*/ /:splat 301
 ```
 以实现301跳转。
 
@@ -93,4 +93,4 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
 
 ![waline display bug while as subtitle](https://images.kusanali.top/waline-display-bug-while-as-subtitle.png)
 
-原本Waline初始化时寻找挂载点用的是el: '#waline'，这在底层会调用类似document.querySelector('#waline')的方法。因为章节标题叫waline，Markdown渲染器自动给这个章节的HTML标签加上了id="waline"。由于章节在正文里，排在文末的评论区前面，所以Waline找到了第一个匹配的元素（也就是章节标题），就把评论区渲染到那里去了。在Comment.astro中el项加上comment-component作为父级限定后，Waline 就只会在<comment-component>这个自定义元素内部去寻找 #waline，从而彻底解决了冲突。此为[参考](https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5)。
+原本Waline初始化时寻找挂载点用的是el: '#waline'，这在底层会调用类似document.querySelector('#waline')的方法。因为章节标题叫waline，Markdown渲染器自动给这个章节的HTML标签加上了id="waline"。由于章节在正文里，排在文末的评论区前面，所以Waline找到了第一个匹配的元素（也就是章节标题），就把评论区渲染到那里去了。在Comment.astro中el项加上comment-component作为父级限定后，Waline就只会在<comment-component>这个自定义元素内部去寻找#waline，从而彻底解决了冲突。此为[参考](https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5)。
