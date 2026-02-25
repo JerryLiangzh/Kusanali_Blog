@@ -10,7 +10,7 @@ type Props = SiteMeta
 const { articleDate, description, ogImage, title } = Astro.props
 
 const siteTitle = `${title} ${config.titleDelimiter} ${config.title}`
-const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
+const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, ''), Astro.site)
 const socialImageURL = new URL(ogImage ? ogImage : config.socialCard, Astro.url).href
 ---
 
