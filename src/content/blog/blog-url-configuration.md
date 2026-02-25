@@ -89,6 +89,8 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
 
 总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。
 
-另外，我是没想到还能触发这样的bug😂以waline或Waline为章节名时，竟然会让waline系统会从文末瞬移到文中，不得不改了章节标题。章节本质就是“文章URL”+“#title-of-paragraph”，而文章页面中文末的waline评论系统就是以“文章URL”+“#waline”存在。已经去提了[issue](https://github.com/cworld1/astro-theme-pure/issues/139)了，静待回复吧。
+另外，我是没想到还能触发这样的bug。以waline或Waline为章节名时，竟然会让waline系统会从文末瞬移到文中。章节本质就是“文章URL”+“#title-of-paragraph”，而文章页面中文末的waline评论系统就是以“文章URL”+“#waline”存在。此为所提[issue](https://github.com/cworld1/astro-theme-pure/issues/139)，目前已经得到开发者修复。
 
 ![waline display bug while as subtitle](https://images.kusanali.top/waline-display-bug-while-as-subtitle.png)
+
+原本Waline初始化时寻找挂载点用的是el: '#waline'，这在底层会调用类似document.querySelector('#waline')的方法。因为章节标题叫waline，Markdown渲染器自动给这个章节的HTML标签加上了id="waline"。由于章节在正文里，排在文末的评论区前面，所以Waline找到了第一个匹配的元素（也就是章节标题），就把评论区渲染到那里去了。在Comment.astro中el项加上comment-component作为父级限定后，Waline 就只会在<comment-component>这个自定义元素内部去寻找 #waline，从而彻底解决了冲突。此为[参考](https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5)。
