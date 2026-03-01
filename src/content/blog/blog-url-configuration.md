@@ -20,7 +20,7 @@ featured: false
 
 24号上午在闲逛收藏夹里的各博客时，刷到了绅士喵的这一篇文章，[正确配置用 .html 作为 URL 后缀的博客缓存](https://blog.hentioe.dev/posts/configure-blog-cache-with-html-as-url-suffix.html)，内中提及`/post/post-1`与`/post/post-1/`的对比，并称后者是丑陋的文件夹地址。我虽然对文件夹地址意见不是很大，但如可能我更愿意让我的博客使用前一种地址。我额外参考了本文上一部分提及的那3个参考博客，它们皆是属于前者。
 
-Astro theme pure的Docs并未提及此内容，但Astro的Docs倒是有，也就是涉及到所谓的[build.format](https://docs.astro.build/en/reference/configuration-reference/#buildformat)。和绅士喵文中吐槽的Hugo一样，Astro默认生成的文件结构会让文章以“文件夹”的形式访问，即
+Astro theme pure的Docs并未提及此内容，但Astro的Docs倒是有，也就是涉及到所谓的[build.format](https://docs.astro.build/en/reference/configuration-reference/#buildformat)与[trailingSlash](https://docs.astro.build/en/reference/configuration-reference/#trailingslash)。和绅士喵文中吐槽的Hugo一样，Astro默认生成的文件结构会让文章以“文件夹”的形式访问，即
 ```astro
 {
     build: {
@@ -37,7 +37,7 @@ const path = Astro.url.pathname.replace(/(index)?\.html$/, '')
 ```
 以此修复`data-path`。
 
-当然也可以优雅一些，参考Kukmoon谷月的[用重定向去掉博文的 .html 后缀](https://kukmoon.github.io/3366bd4a8b7d/)。虽然她用的是Valine，但Waline作为With backend Valine，都是根据静态页面的文件名来储存评论数据的。她的办法就是在在虚拟主机和CF Pages两边都配置301跳转，利用Apache的.htaccess文件以及CF Pages的_redirects重定向规则文件。
+当然也可以优雅一些，参考Kukmoon谷月的[用重定向去掉博文的 .html 后缀](https://kukmoon.github.io/3366bd4a8b7d/)。虽然她用的是Valine，但Waline作为With backend Valine，都是根据静态页面的文件名来储存评论数据的。她的办法就是在在虚拟主机和CF Pages两边都配置301跳转，利用Apache的.htaccess文件以及CF Pages的[_redirects](https://developers.cloudflare.com/pages/configuration/redirects/)重定向规则文件。
 
 ## 同步修改Copyright
 
@@ -85,7 +85,13 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
 
 在查找原因时，我曾疑心是不是我之前改动代码时误改了什么，虽然我清楚地记得我并没有动过这一部分的代码，但出于稳妥还是把Astro theme pure主题的2位杰出贡献者的博客代码都和我对比了一下（在此感谢他们能把相关Repository设置为Public），发现一模一样（不然初始`data-path`也不会相同）。
 
-当时的我没有想太多，不过在事情基本尘埃落定、我在为这篇文章改动个别错别字时，我突然想到部署平台的问题，因为他们二位都是在Vercel部署。我把代码改了回去之后，在Vercel部署了一次（不得不说尽管两者的部署、配置都非常简单方便，但要说更，还得是Vercel），就发现了原因：Vercel部署后，URL末尾是没有`/`的。当然，如果改动了build.format后，两边的结果就相同了。至于为什么Vercel不改就能不带而Cloudflare Pages需要，以及为什么`trailingSlash`似乎不生效，我暂时还蒙在鼓里。
+于是我想到了部署平台的问题，因为他们二位都是在Vercel部署，与我不同。我把代码改了回去之后，在Vercel部署了一次（不得不说尽管两者的部署、配置都非常简单方便，但要说更，还得是Vercel），就发现了有趣的一点：Vercel部署后，URL末尾是没有`/`的。当然，如果是裸域URL/主页，那实际上还是有`/`，因为访问请求必须从`/`开始，浏览器此时替我们做了正确的修正，在URL后面自动的加上了`/`从而能正确访问，不过是在地址栏中隐去而已。
+
+**在Vercel部署时**，由于没有Cloudflare的Route Matching，设置如何就是如何。本博客使用的主题，其并未针对build.format作出设置，因此即为默认的directory，结合`trailingSlash: "never"`，故其除主页外的canonicalURL都与浏览器地址栏中一致——所见即所得。**在Cloudflare Pages部署时**，情况就变得稍微有些复杂，变量有点多，经试验，结果如下：
+
+![url settings in cloudflare pages](https://images.kusanali.top/url-settings-in-cloudflare-pages.png)
+
+这里不含对主页的测试。出于SEO的考虑，`trailingSlash`只取图中这两个值。在Settings E下，修改推送到GitHub后，只有Vercel触发了部署，而Cloudflare Pages则毫无动静。
 
 总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。
 
