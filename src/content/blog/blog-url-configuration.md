@@ -2,7 +2,7 @@
 
 title: '博客中的URL配置'
 publishDate: 2026-02-24
-updatedDate: 2026-02-25
+updatedDate: 2026-03-01
 description: '谈谈建站过程中和url打过的交道'
 author: 'Jerry Liangzh'
 tags: ["建站", "waline", "copyright", "cloudflare", "vercel"]
@@ -69,16 +69,17 @@ http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-n
 
 ## 关于SEO与ERR_TOO_MANY_REDIRECTS
 
-虽然本博客的创建与写作初心不是为了什么SEO，但也不代表我可以完全忽视它。在以上改动完成后，我立刻就遇到了浏览器提示的重定向错误，亦即ERR_TOO_MANY_REDIRECTS——在清空cookies后一切看起来又恢复正常。众所周知，URL末尾带不带/对搜索引擎爬虫而言完全是两回事，由此容易导致内容重复与权重分散。为了避免这2点或爬虫抓到大量的404或重定向循环，可以利用_redirects重定向规则文件，内容是
+虽然本博客的创建与写作初心不是为了什么SEO，但也不代表我可以完全忽视它。在以上改动完成后，我立刻就遇到了浏览器提示的重定向错误，亦即ERR_TOO_MANY_REDIRECTS——在清空cookies后一切看起来又恢复正常。众所周知，URL末尾带不带/、有无.html对搜索引擎爬虫而言完全是两回事，由此容易导致内容重复与权重分散。为了避免这2点或爬虫抓到大量的404或重定向循环，可以在\public根目录下引入_redirects重定向规则文件，内容是
 ```
 /*/ /:splat 301
+/*.html /:splat 301
 ```
-以实现301跳转。
+以实现/blog/about/与/blog/about.html向/blog/about的301跳转。
 
-更彻底地，可以考虑在BaseHead.astro里对Canonical URL进行改动
+或者可以考虑在BaseHead.astro里对Canonical URL进行改动。若进行了一下改动，则_redirects似非必需。
 ```astro
 /* Original code: const canonicalURL = new URL(Astro.url.pathname, Astro.site) */
-const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
+const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, ''), Astro.site)
 ```
 
 ## Cloudflare与Vercel
@@ -91,9 +92,9 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, ''), Astro.site)
 
 ![url settings in cloudflare pages](https://images.kusanali.top/url-settings-in-cloudflare-pages.png)
 
-这里不含对主页的测试。出于SEO的考虑，`trailingSlash`只取图中这两个值。在Settings E下，修改推送到GitHub后，只有Vercel触发了部署，而Cloudflare Pages则毫无动静。
+这里不含对主页的测试。出于SEO的考虑，`trailingSlash`只取图中这两个值。在Settings E下，修改推送到GitHub后，只有Vercel触发了部署，而Cloudflare Pages则毫无动静。但考虑到这是本博客所用主题的默认代码，故其表现还是可以通过Cloudflare Pages的历史部署链接查看，这种设定下，其地址栏是与拥有相同build.format的设定一致。
 
-总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。
+总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。由此，推荐Settings B/D/G。在Settings G下，_redirects需要改写。
 
 另外，我是没想到还能触发这样的bug。以waline或Waline为章节名时，竟然会让waline系统会从文末瞬移到文中。章节本质就是“文章URL”+“#title-of-paragraph”，而文章页面中文末的waline评论系统就是以“文章URL”+“#waline”存在。此为所提[issue](https://github.com/cworld1/astro-theme-pure/issues/139)，目前已经得到开发者修复。
 
