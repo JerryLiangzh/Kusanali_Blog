@@ -76,7 +76,7 @@ http://service.weibo.com/share/share.php?url=https://kusanali.top/blog/example-n
 ```
 以实现/blog/about/与/blog/about.html向/blog/about的301跳转。
 
-或者可以考虑在BaseHead.astro里对Canonical URL进行改动。若进行了一下改动，则_redirects似非必需。
+或者可以考虑在BaseHead.astro里对Canonical URL进行改动。若进行了以下改动，则_redirects非必需。Cloudflare会自动308重定向。
 ```astro
 /* Original code: const canonicalURL = new URL(Astro.url.pathname, Astro.site) */
 const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, ''), Astro.site)
@@ -94,7 +94,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/
 
 这里不含对主页的测试。出于SEO的考虑，`trailingSlash`只取图中这两个值。在Settings E下，修改推送到GitHub后，只有Vercel触发了部署，而Cloudflare Pages则毫无动静。但考虑到这是本博客所用主题的默认代码，故其表现还是可以通过Cloudflare Pages的历史部署链接查看，这种设定下，其地址栏是与拥有相同build.format的设定一致。
 
-总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。由此，推荐Settings B/D/G。在Settings G下，_redirects需要改写。
+总之，博客URL末尾加/也好不加也罢，个人认为并无高下之分，不会为网站性能带来什么加成，关键还得要**尽早**+**统一**。由此，推荐Settings B/D/G。在Settings G下，若仍需要_redirects文件，则其需要改写。
 
 另外，我是没想到还能触发这样的bug。以waline或Waline为章节名时，竟然会让waline系统会从文末瞬移到文中。章节本质就是“文章URL”+“#title-of-paragraph”，而文章页面中文末的waline评论系统就是以“文章URL”+“#waline”存在。此为所提[issue](https://github.com/cworld1/astro-theme-pure/issues/139)，目前已经得到开发者修复。
 
