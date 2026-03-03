@@ -90,7 +90,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/
 
 **在Vercel部署时**，由于没有Cloudflare的Route Matching，设置如何就是如何。本博客使用的主题，其并未针对build.format作出设置，因此即为默认的directory，结合`trailingSlash: "never"`，故其除主页外的canonicalURL都与浏览器地址栏中一致——所见即所得。**在Cloudflare Pages部署时**，情况就变得稍微有些复杂，变量有点多，经试验，结果如下：
 
-![url settings in cloudflare pages](https://images.kusanali.top/url-settings-in-cloudflare-pages.png)
+![url settings in cloudflare pages](https://images.kusanali.top/comparison-of-url-settings-in-cloudflare-pages.png)
 
 这里不含对主页的测试。出于SEO的考虑，`trailingSlash`只取图中这两个值。在Settings E下，修改推送到GitHub后，只有Vercel触发了部署，而Cloudflare Pages则毫无动静。但考虑到这是本博客所用主题的默认代码，故其表现还是可以通过Cloudflare Pages的历史部署链接查看，这种设定下，其地址栏是与拥有相同build.format的设定一致。
 
@@ -101,3 +101,11 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/
 ![waline display bug while as subtitle](https://images.kusanali.top/waline-display-bug-while-as-subtitle.png)
 
 原本Waline初始化时寻找挂载点用的是el: '#waline'，这在底层会调用类似document.querySelector('#waline')的方法。因为章节标题叫waline，Markdown渲染器自动给这个章节的HTML标签加上了id="waline"。由于章节在正文里，排在文末的评论区前面，所以Waline找到了第一个匹配的元素（也就是章节标题），就把评论区渲染到那里去了。在Comment.astro中el项加上comment-component作为父级限定后，Waline就只会在<comment-component>这个自定义元素内部去寻找#waline，从而彻底解决了冲突。此为[参考](https://waline.js.org/guide/get-started/#html-%E5%BC%95%E5%85%A5)。
+
+---
+
+鸣谢：
+
+- [URL最后结尾斜杠(/)加与不加区别](https://www.jianshu.com/p/1183ae7b1a33)
+
+- [URL地址末尾/的意义](https://juejin.cn/post/7502349133346930739)
