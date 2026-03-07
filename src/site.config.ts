@@ -71,7 +71,7 @@ export const theme: ThemeUserConfig = {
       // Privacy Policy link
       {
         title: 'Site Policy',
-        link: '/terms/list',
+        link: '/terms',
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
@@ -130,7 +130,7 @@ export const integ: IntegrationUserConfig = {
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
     // server: 'https://v1.hitokoto.cn/?c=i',
     // target: `(data) => (data.hitokoto || 'Error')`
-    // - Quoteable
+    // - Quotable
     // https://github.com/lukePeavey/quotable
     // server: 'http://api.quotable.io/quotes/random?maxLength=60',
     // target: `(data) => data[0].content || 'Error'`
