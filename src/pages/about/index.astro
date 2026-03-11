@@ -1,7 +1,6 @@
 ---
 import { Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import Substats from '@/components/about/Substats.astro'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
@@ -30,44 +29,6 @@ const headings = [
     <li>Sports: badminton and running; watching Formula 1 Grand Prixs and Counter-Strike 2 matches</li>
     <li>Research interests: the preparation, synthesis, and performance study of metal-based electrocatalysts</li>
   </ul>
-
-  {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
-  <Substats
-    stats={[
-      {
-        platform: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/jerryliangzh',
-        text: 'followers',
-        api: 'github/JerryLiangzh'
-      },
-      {
-        platform: 'Zhihu',
-        icon: 'zhihu',
-        color: '#0084ff',
-        link: 'https://www.zhihu.com/people/73-11-72-45-65',
-        text: 'followers',
-        count: 20
-      },
-      {
-        platform: 'Bilibili',
-        icon: 'bilibili',
-        color: '#fe7398',
-        link: 'https://space.bilibili.com/1314737513',
-        text: 'followers',
-        count: 7
-      },
-      {
-        platform: 'ResearchGate',
-        icon: 'researchgate',
-        //color: '#000000',
-        link: 'https://www.researchgate.net/profile/Ziheng-Liang-2',
-        text: 'citations',
-        count: 13
-      }
-    ]}
-  />
 
   {/* about-blog */}
   <h2 id='blog-infrastructure'>Blog Infrastructure</h2>
